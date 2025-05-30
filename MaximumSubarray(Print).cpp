@@ -1,7 +1,7 @@
 class Solution {
 public:
-    // Function to find pair with maximum subarray sum
-    int pairWithMaxSum(vector<int> &arr) {
+    // Function to return subarray with maximum sum
+    vector<int> pairWithMaxSum(vector<int> &arr) {
         int n = arr.size();
         int ansStart = -1;
         int ansEnd = -1;
@@ -26,7 +26,15 @@ public:
                 sum = 0;
             }
         }
+
         cout << "Maximum sum subarray is from index " << ansStart << " to " << ansEnd << endl;
-        return maxi;
+
+        // Extract the subarray from ansStart to ansEnd
+        vector<int> result;
+        for (int i = ansStart; i <= ansEnd; ++i) {
+            result.push_back(arr[i]);
+        }
+
+        return result;
     }
 };
